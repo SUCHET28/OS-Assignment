@@ -177,15 +177,15 @@ with st.sidebar:
     st.subheader("⚙️ Workload Presets")
     col_pre1, col_pre2 = st.columns(2)
     with col_pre1:
-        if st.button("Sample Data", use_container_width=True, help="Load Section 11 Benchmark"):
+        if st.button("Sample Data", width="stretch", help="Load Section 11 Benchmark"):
             load_preset("Section 11 Sample")
             st.rerun()
     with col_pre2:
-        if st.button("Idle Gaps", use_container_width=True, help="Load Workload with CPU Idle Gaps"):
+        if st.button("Idle Gaps", width="stretch", help="Load Workload with CPU Idle Gaps"):
             load_preset("CPU Idle Intervals")
             st.rerun()
 
-    if st.button("Simultaneous (t=0)", use_container_width=True):
+    if st.button("Simultaneous (t=0)", width="stretch"):
         load_preset("Simultaneous Arrivals (t=0)")
         st.rerun()
 
@@ -245,7 +245,7 @@ with tab_sim:
     edited_df = st.data_editor(
         st.session_state.process_data,
         num_rows="dynamic",
-        use_container_width=True,
+        width="stretch",
         column_config={
             "PID": st.column_config.TextColumn("Process ID", required=True),
             "Arrival Time": st.column_config.NumberColumn("Arrival Time (AT)", min_value=0.0, step=1.0, required=True),
@@ -256,9 +256,9 @@ with tab_sim:
 
     col_btn1, col_btn2, _ = st.columns([2, 2, 4])
     with col_btn1:
-        run_sim = st.button("🚀 Run Simulation", use_container_width=True, type="primary")
+        run_sim = st.button("🚀 Run Simulation", width="stretch", type="primary")
     with col_btn2:
-        if st.button("🔄 Reset Table", use_container_width=True):
+        if st.button("🔄 Reset Table", width="stretch"):
             load_preset("Section 11 Sample")
             st.rerun()
 
@@ -307,7 +307,7 @@ with tab_sim:
         st.divider()
         st.markdown("### 3. CPU Execution Timeline (Gantt Chart)")
         gantt_fig = create_gantt_chart(res.execution_history)
-        st.plotly_chart(gantt_fig, use_container_width=True)
+        st.plotly_chart(gantt_fig, width="stretch")
 
         st.divider()
         col_res1, col_res2 = st.columns([1, 1])
@@ -315,7 +315,7 @@ with tab_sim:
         with col_res1:
             st.markdown("### 4. Process Scheduling Table")
             res_df = pd.DataFrame([p.to_dict() for p in res.processes])
-            st.dataframe(res_df, use_container_width=True, hide_index=True)
+            st.dataframe(res_df, width="stretch", hide_index=True)
 
             # CSV Download
             csv_data = res_df.to_csv(index=False).encode("utf-8")
@@ -329,14 +329,14 @@ with tab_sim:
         with col_res2:
             st.markdown("### 5. Metrics Comparison Breakdown")
             metrics_chart = create_process_metrics_chart(res.processes)
-            st.plotly_chart(metrics_chart, use_container_width=True)
+            st.plotly_chart(metrics_chart, width="stretch")
 
         st.divider()
         st.markdown("### 6. Execution Interval Details")
         slices_df = pd.DataFrame([s.to_dict() for s in res.execution_history])
         col_s1, col_s2 = st.columns([2, 1])
         with col_s1:
-            st.dataframe(slices_df, use_container_width=True, hide_index=True)
+            st.dataframe(slices_df, width="stretch", hide_index=True)
         with col_s2:
             st.markdown(
                 f"""
@@ -430,7 +430,7 @@ with tab_steps:
                     }
                     for s in steps
                 ])
-                st.dataframe(step_log_df, use_container_width=True, hide_index=True)
+                st.dataframe(step_log_df, width="stretch", hide_index=True)
     else:
         st.info("Run the simulation in the 'Simulator & Results' tab first to enable step-by-step inspection.")
 
@@ -485,12 +485,12 @@ with tab_analysis:
             fig_wt, fig_cs = create_quantum_comparison_charts(comp_df)
             col_c1, col_c2 = st.columns(2)
             with col_c1:
-                st.plotly_chart(fig_wt, use_container_width=True)
+                st.plotly_chart(fig_wt, width="stretch")
             with col_c2:
-                st.plotly_chart(fig_cs, use_container_width=True)
+                st.plotly_chart(fig_cs, width="stretch")
 
             st.markdown("#### Comparison Summary Table")
-            st.dataframe(comp_df, use_container_width=True, hide_index=True)
+            st.dataframe(comp_df, width="stretch", hide_index=True)
 
             # CSV Download
             csv_comp = comp_df.to_csv(index=False).encode("utf-8")
