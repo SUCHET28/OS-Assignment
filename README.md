@@ -1,8 +1,9 @@
 # Round Robin CPU Scheduling Simulator
 
 [![Python](https://img.shields.io/badge/Python-3.10%2B-blue.svg)](https://www.python.org/)
+[![CI](https://github.com/SUCHET28/OS-Assignment/actions/workflows/ci.yml/badge.svg)](https://github.com/SUCHET28/OS-Assignment/actions/workflows/ci.yml)
+[![Interactive Simulator](https://img.shields.io/badge/GitHub%20Actions-Interactive%20Simulator-purple.svg)](https://github.com/SUCHET28/OS-Assignment/actions/workflows/interactive_simulation.yml)
 [![Streamlit](https://img.shields.io/badge/Streamlit-1.30%2B-FF4B4B.svg)](https://streamlit.io/)
-[![Plotly](https://img.shields.io/badge/Plotly-Interactive-3F4F75.svg)](https://plotly.com/)
 [![Tests](https://img.shields.io/badge/Tests-21%20Passed-brightgreen.svg)]()
 
 **Description**: An interactive Operating Systems engineering group project demonstrating the preemptive **Round Robin (RR) CPU Scheduling Algorithm** using Python, Streamlit, and Plotly.
@@ -53,23 +54,29 @@ This simulator allows students, educators, and engineers to observe, step throug
 ```text
 round-robin-cpu-scheduling-simulator/
 │
-├── app.py                     # Streamlit frontend dashboard application
-├── scheduler.py               # Core Round Robin scheduling engine & queue logic
-├── metrics.py                 # Performance metrics & context switch calculator
-├── visualization.py           # Plotly Gantt chart & visual ready queue components
-├── requirements.txt           # Project dependencies
-├── README.md                  # Complete project documentation and guide
-├── .gitignore                 # Git ignore file for Python cache & bytecode
+├── .github/
+│   └── workflows/
+│       ├── ci.yml                     # Automated multi-version Python testing
+│       └── interactive_simulation.yml # Interactive GitHub Action simulator
 │
-├── tests/                     # Automated unit test suite
+├── app.py                             # Streamlit frontend dashboard application
+├── cli.py                             # Command-line interface & ASCII runner
+├── scheduler.py                       # Core Round Robin scheduling engine & queue logic
+├── metrics.py                         # Performance metrics & context switch calculator
+├── visualization.py                   # Plotly Gantt chart & visual ready queue components
+├── requirements.txt                   # Project dependencies
+├── README.md                          # Complete project documentation and guide
+├── .gitignore                         # Git ignore file for Python cache & bytecode
+│
+├── tests/                             # Automated unit test suite (21 unit tests)
 │   ├── __init__.py
-│   ├── test_scheduler.py      # Scheduler algorithm & edge case test suite
-│   └── test_metrics.py        # Metrics calculations & interval continuity tests
+│   ├── test_scheduler.py              # Scheduler algorithm & edge case test suite
+│   └── test_metrics.py                # Metrics calculations & interval continuity tests
 │
-└── docs/                      # Technical documentation
-    ├── architecture.md        # System architecture, data flow & component contracts
-    ├── algorithm.md           # Theoretical specification & mathematical formulas
-    └── test_cases.md          # Complete QA test matrix and validation records
+└── docs/                              # Technical documentation
+    ├── architecture.md                # System architecture, data flow & component contracts
+    ├── algorithm.md                   # Theoretical specification & mathematical formulas
+    └── test_cases.md                  # Complete QA test matrix and validation records
 ```
 
 ---
@@ -127,9 +134,39 @@ streamlit run app.py
 
 The simulator will launch automatically in your default browser at `http://localhost:8501`.
 
+### 5. Run via Command-Line Interface (CLI)
+You can also run simulations directly in your terminal with ASCII Gantt charts:
+```bash
+# Run with Section 11 benchmark and Quantum = 2
+python cli.py --quantum 2
+
+# Run with custom processes (PID:Arrival:Burst)
+python cli.py --quantum 3 --processes "P1:0:6,P2:1:4,P3:2:8,P4:3:2"
+```
+
 ---
 
-## 7. Mathematical Formulas & Concepts
+## 7. Interactive GitHub Actions Workflow
+
+This repository includes an **interactive GitHub Action** that allows evaluators and visitors to execute Round Robin simulations directly on GitHub without cloning or installing Python locally!
+
+### How to Run Interactive Simulations on GitHub:
+1. Navigate to the **[Actions Tab](https://github.com/SUCHET28/OS-Assignment/actions)** on GitHub.
+2. Select **"Interactive Round Robin Simulator"** from the left workflow list.
+3. Click the **"Run workflow"** button on the right:
+   - **Time Quantum ($q$)**: Enter any quantum (e.g. `2.0`, `3.0`, `1.5`).
+   - **Workload Preset**: Choose between `college_benchmark`, `simultaneous_arrivals`, `idle_gaps`, or `custom`.
+   - **Custom Processes**: If you selected `custom`, enter processes in `PID:AT:BT` format (e.g. `P1:0:5,P2:1:4,P3:2:2`).
+4. Click **Run workflow**.
+5. Once the run completes (~10 seconds), open the completed job to view a **rich Step Summary** containing:
+   - Performance Summary Table (Avg WT, Avg TAT, Avg RT, CPU Utilization, Context Switches).
+   - Rendered **ASCII Gantt Chart** timeline.
+   - Complete Process Metrics Breakdown table.
+   - Slices Execution Log.
+
+---
+
+## 8. Mathematical Formulas & Concepts
 
 | Metric | Formula | Description |
 | :--- | :--- | :--- |
@@ -146,7 +183,7 @@ A context switch is counted whenever the CPU transitions between two different p
 
 ---
 
-## 8. Sample Verification Benchmark
+## 9. Sample Verification Benchmark
 
 ### Input Data
 - **Time Quantum ($q$)**: `2`
@@ -177,7 +214,7 @@ $$\text{P1 (0-2)} \to \text{P2 (2-4)} \to \text{P3 (4-6)} \to \text{P1 (6-8)} \t
 
 ---
 
-## 9. Running Automated Tests
+## 10. Running Automated Tests
 
 The backend engine has an extensive test suite verifying 21 distinct scenarios including single processes, simultaneous arrivals, CPU idle gaps, burst time edge cases, invalid inputs, and interval continuity.
 
@@ -218,7 +255,7 @@ tests/test_scheduler.py::test_empty_process_list PASSED                  [100%]
 
 ---
 
-## 10. Future Enhancements
+## 11. Future Enhancements
 
 - Multi-Level Feedback Queue (MLFQ) extension.
 - Priority-based Round Robin scheduling.
