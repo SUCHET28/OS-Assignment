@@ -1,7 +1,7 @@
 """
 Round Robin CPU Scheduling Simulator - Interactive Streamlit Application
 ========================================================================
-Author: Frontend Developer (Member 2) & Integrated Team
+Author: Frontend Developer (PALLAVI M V) & Integrated Team
 Branch: frontend-dashboard
 
 An interactive web-based simulator for exploring Round Robin CPU Scheduling.
@@ -207,9 +207,9 @@ with st.sidebar:
     st.subheader("👥 Project Credits")
     st.markdown(
         """
-        - **Member 1 (Backend Developer)**:
+        - **V SUCHET (Backend Developer)**:
           `scheduler.py`, `metrics.py`, Unit Tests
-        - **Member 2 (Frontend Developer)**:
+        - **PALLAVI M V (Frontend Developer)**:
           `app.py`, `visualization.py`, UI/UX
         """
     )

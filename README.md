@@ -80,14 +80,14 @@ This project was built through a collaborative two-member team division:
 
 | Team Member | Role | Assigned Branch | Primary Responsibilities |
 | :--- | :--- | :--- | :--- |
-| **Member 1** | **Backend Developer** | `backend-scheduler` | `scheduler.py`, `metrics.py`, `collections.deque` ready queue, slice recording, context switch counting, unit tests (`test_scheduler.py`, `test_metrics.py`). |
-| **Member 2** | **Frontend Developer** | `frontend-dashboard` | `app.py`, `visualization.py`, dark-themed dashboard, Plotly Gantt charts, step-by-step queue visualizer, CSV export. |
+| **V SUCHET** | **Backend Developer** | `backend-scheduler` | `scheduler.py`, `metrics.py`, `collections.deque` ready queue, slice recording, context switch counting, unit tests (`test_scheduler.py`, `test_metrics.py`). |
+| **PALLAVI M V** | **Frontend Developer** | `frontend-dashboard` | `app.py`, `visualization.py`, dark-themed dashboard, Plotly Gantt charts, step-by-step queue visualizer, CSV export. |
 | **Joint Team** | **Integration & QA** | `testing-documentation` | Architecture specifications, technical documentation, requirements, end-to-end integration, demo verification. |
 
 ### Branch Structure:
 - `main`: Production-ready integrated release.
-- `backend-scheduler`: Reserved for Member 1 backend logic and unit testing.
-- `frontend-dashboard`: Reserved for Member 2 UI components and Plotly charts.
+- `backend-scheduler`: Reserved for V SUCHET (Backend logic and unit testing).
+- `frontend-dashboard`: Reserved for PALLAVI M V (UI components and Plotly charts).
 - `testing-documentation`: Shared branch for documentation, integration, and final testing.
 
 ---

@@ -1,7 +1,7 @@
 """
 Round Robin CPU Scheduling Simulator - Visualization Engine
 ============================================================
-Author: Frontend Developer (Member 2)
+Author: Frontend Developer (PALLAVI M V)
 Branch: frontend-dashboard
 
 Provides interactive Plotly visualizations:

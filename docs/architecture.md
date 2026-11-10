@@ -2,7 +2,7 @@
 
 **Project**: Round Robin CPU Scheduling Simulator  
 **Course**: Operating Systems Group Mini-Project (Two-Member Team)  
-**Authors**: Member 1 (Backend Engineer) & Member 2 (Frontend Engineer)  
+**Authors**: V SUCHET (Backend Engineer) & PALLAVI M V (Frontend Engineer)  
 
 ---
 
@@ -10,7 +10,7 @@
 
 The Round Robin CPU Scheduling Simulator is architected with a strict **Separation of Concerns (SoC)** model. The computational scheduling logic is fully decoupled from the presentation and user interface layers. This decoupled architecture allows:
 - **Independent Testing**: The backend scheduling engine can be unit-tested without launching a web server or graphical interface.
-- **Clear Team Division**: Backend development (`Member 1`) and Frontend development (`Member 2`) proceed simultaneously on dedicated Git branches without merge conflicts.
+- **Clear Team Division**: Backend development (`V SUCHET`) and Frontend development (`PALLAVI M V`) proceed simultaneously on dedicated Git branches without merge conflicts.
 - **Extensibility**: The simulation engine can be plugged into a CLI, REST API, or desktop GUI without altering the scheduling algorithms.
 
 ---
@@ -19,7 +19,7 @@ The Round Robin CPU Scheduling Simulator is architected with a strict **Separati
 
 ```mermaid
 flowchart TD
-    subgraph UI_Layer["Frontend Presentation Layer (Member 2 - frontend-dashboard)"]
+    subgraph UI_Layer["Frontend Presentation Layer (PALLAVI M V - frontend-dashboard)"]
         UI["Streamlit Interface (app.py)"]
         TableEditor["Process Config Data Editor"]
         GanttView["Interactive Gantt Chart (Plotly)"]
@@ -29,7 +29,7 @@ flowchart TD
         VisEngine["Visualization Helpers (visualization.py)"]
     end
 
-    subgraph Core_Layer["Backend Simulation Engine (Member 1 - backend-scheduler)"]
+    subgraph Core_Layer["Backend Simulation Engine (V SUCHET - backend-scheduler)"]
         Validator["Input Validation Engine"]
         Scheduler["Round Robin Scheduler (scheduler.py)"]
         ReadyQueue["FIFO Ready Queue (collections.deque)"]
@@ -133,7 +133,7 @@ sequenceDiagram
 
 ## 5. Interface Contract
 
-The contract between Member 1 and Member 2 is defined through Python data classes in `scheduler.py`:
+The contract between V SUCHET and PALLAVI M V is defined through Python data classes in `scheduler.py`:
 
 ```python
 @dataclass

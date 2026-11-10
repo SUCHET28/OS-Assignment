@@ -1,7 +1,7 @@
 """
 Unit Tests for Round Robin Scheduler Engine
 ===========================================
-Author: Backend Developer (Member 1)
+Author: Backend Developer (V SUCHET)
 Branch: backend-scheduler
 
 Tests all algorithmic requirements, edge cases, and deterministic execution sequences.

@@ -1,7 +1,7 @@
 """
 Round Robin CPU Scheduling Simulator - Performance Metrics Engine
 ==================================================================
-Author: Backend Developer (Member 1)
+Author: Backend Developer (V SUCHET)
 Branch: backend-scheduler
 
 This module calculates scheduling metrics including Completion Time (CT),
