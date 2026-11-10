@@ -1,0 +1,57 @@
+name: Interactive Round Robin Simulator
+
+on:
+  workflow_dispatch:
+    inputs:
+      quantum:
+        description: "Time Quantum (q) for Round Robin execution"
+        required: true
+        default: "2.0"
+        type: string
+      preset:
+        description: "Select workload preset or choose custom"
+        required: true
+        default: "college_benchmark"
+        type: choice
+        options:
+          - college_benchmark
+          - simultaneous_arrivals
+          - idle_gaps
+          - custom
+      custom_processes:
+        description: "Custom Processes (used only if preset is 'custom', format: 'PID:AT:BT,PID:AT:BT')"
+        required: false
+        default: "P1:0:5,P2:1:4,P3:2:2,P4:4:1"
+        type: string
+
+jobs:
+  simulate:
+    name: Execute Interactive Simulation
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+          cache: "pip"
+
+      - name: Install Dependencies
+        run: |
+          python -m pip install --upgrade pip
+          pip install -r requirements.txt
+
+      - name: Run Round Robin Scheduling Simulation
+        run: |
+          if [ "${{ github.event.inputs.preset }}" = "custom" ]; then
+            python cli.py --quantum ${{ github.event.inputs.quantum }} --processes "${{ github.event.inputs.custom_processes }}" --markdown >> $GITHUB_STEP_SUMMARY
+          else
+            python cli.py --quantum ${{ github.event.inputs.quantum }} --preset ${{ github.event.inputs.preset }} --markdown >> $GITHUB_STEP_SUMMARY
+          fi
+
+      - name: Notify Completion
+        run: |
+          echo "Simulation executed successfully for Time Quantum ${{ github.event.inputs.quantum }}!"

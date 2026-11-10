@@ -1,7 +1,7 @@
 """
 Round Robin CPU Scheduling Simulator - Core Scheduler Engine
 ============================================================
-Author: Backend Developer (Member 1)
+Author: Backend Developer (V SUCHET)
 Branch: backend-scheduler
 
 This module implements the deterministic Round Robin (RR) CPU scheduling algorithm,

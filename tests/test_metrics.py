@@ -1,7 +1,7 @@
 """
 Unit Tests for Performance Metrics Engine
 =========================================
-Author: Backend Developer (Member 1)
+Author: Backend Developer (V SUCHET)
 Branch: backend-scheduler
 
 Tests accuracy of CT, TAT, WT, RT, CPU Utilization, and Gantt intervals.
