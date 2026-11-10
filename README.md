@@ -1,6 +1,7 @@
 # Round Robin CPU Scheduling Simulator
 
 [![Python](https://img.shields.io/badge/Python-3.10%2B-blue.svg)](https://www.python.org/)
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
 [![CI](https://github.com/SUCHET28/OS-Assignment/actions/workflows/ci.yml/badge.svg)](https://github.com/SUCHET28/OS-Assignment/actions/workflows/ci.yml)
 [![Interactive Simulator](https://img.shields.io/badge/GitHub%20Actions-Interactive%20Simulator-purple.svg)](https://github.com/SUCHET28/OS-Assignment/actions/workflows/interactive_simulation.yml)
 [![Streamlit](https://img.shields.io/badge/Streamlit-1.30%2B-FF4B4B.svg)](https://streamlit.io/)
@@ -261,3 +262,10 @@ tests/test_scheduler.py::test_empty_process_list PASSED                  [100%]
 - Priority-based Round Robin scheduling.
 - Configurable context switch overhead penalty in calculation formulas.
 - Real-time animation playback mode with variable speed controls.
+
+---
+
+## 12. License
+
+This project is licensed under the [MIT License](LICENSE) - see the [LICENSE](LICENSE) file for details.
+Copyright (c) 2026 **V SUCHET** & **PALLAVI M V**.
